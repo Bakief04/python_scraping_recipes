@@ -1,7 +1,8 @@
 from bs4 import BeautifulSoup
 import requests
 
-source = requests.get ('https://webscraper.io/test-sites/e-commerce/allinone').text
+user_input = input("What recipe are you looking for?" )
+source = requests.get ('https://www.allrecipes.com/search/?wt={}'.format(user_input)).text
 
 soup = BeautifulSoup(source, 'html.parser')
 
