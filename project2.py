@@ -9,14 +9,13 @@ soup = BeautifulSoup(source, 'html.parser')
 
 #Sarticle = soup.find(id='fixed-recipe-card')
 #print(article.prettify())
-summary = soup.find(class_='fixed-recipe-card__title-link')
-print(summary.get_text())
-summarylink = (summary['href'])
-
+#summary = soup.find_all(class_='fixed-recipe-card__title-link', limit=3)
+for el in soup.find_all('a',{'class':'fixed-recipe-card__title-link'}, limit=3):
+    print(el.get_text())
+        #summarylink = (['href'])
+    
 py1 = input("would you like to get this recipe? ")
-link2 = source = requests.get (summarylink)
+#link2 = source = requests.get (summarylink)
 
-if py1 == 'yes':
-    print(link2.text)
-
-
+#if py1 == 'yes':
+ #   print(link2.text)
