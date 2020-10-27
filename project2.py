@@ -11,11 +11,11 @@ soup = BeautifulSoup(source, 'html.parser')
 #print(article.prettify())
 #summary = soup.find_all(class_='fixed-recipe-card__title-link', limit=3)
 for el in soup.find_all('a',{'class':'fixed-recipe-card__title-link'}, limit=3):
-    print(el.get_text())
-        #summarylink = (['href'])
+    print(el.prettify())
+    py1=(el['href'])
     
-py1 = input("would you like to get this recipe? ")
-#link2 = source = requests.get (summarylink)
+py3 = input("Please Pick the number of the recipe which closely matches the recipe that you would like. ")
+py2 = source = requests.get (py1)
 
-#if py1 == 'yes':
- #   print(link2.text)
+if py3 == '1':
+    print(py2.text)
