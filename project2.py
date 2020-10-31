@@ -9,20 +9,16 @@ source = requests.get ('https://www.allrecipes.com/search/?wt={}'.format(user_in
 
 soup = BeautifulSoup(source, 'html.parser')
 
-#Sarticle = soup.find(id='fixed-recipe-card')
-#print(article.prettify())
-#summary = soup.find_all(class_='fixed-recipe-card__title-link', limit=3)
-
 #prints out the recipe titles and stores the url for the recipe as a variable
 for recipe_title in soup.find_all('a',{'class':'fixed-recipe-card__title-link'}, limit=3):
     py1 = (recipe_title['href'])
     print(recipe_title.get_text())
     
-py3 = input("Please Pick the number of the recipe which closely matches the recipe that you would like. ")
-py2 = source = requests.get (py1) #url of first site url in recipe_title
-
+py3 = input("Please type the recipe which closely matches the recipe that you would like. ")
+py2 = source = requests.get ("https://www.allrecipes.com/recipe/{}".format(py3)).text #url of first site url in recipe_title
+py4 = input("Are you sure this is correct? [Y/N]  ") 
 
 #writes to file. Currently writes the full html if you type 1 at the end
-if py3 == '1':
-    sys.stdout = open('output.txt', "wt")
-    print(py2.text)
+if py4 == 'Y':
+    sys.stdout = open('{}.txt'.format(py3), 'wt')
+    print(py2)
