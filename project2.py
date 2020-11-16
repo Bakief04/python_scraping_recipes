@@ -36,7 +36,7 @@ while True:
     confirm = input('Are you sure this is correct?[Y/N] ')
 #Writes to file
     try:
-        if confirm == ('Y'):
+        if confirm.upper() == ('Y'):
             print('Thank you, The recipe is in a file for easier viewing')
             with open('{}.txt'.format(py3.replace('-', ' ')), 'w+') as file1:
                 file1.write('Ingredients')
@@ -48,9 +48,9 @@ while True:
                 file1.write('\n')
                 for step in data["recipeInstructions"]:
 	                file1.writelines(step['text'])
-        elif confirm == ('N'):
-            print('Run Program to Try Again')
-            break
+        else: 
+            confirm != ('Y')
+            continue
     except UnicodeEncodeError:
         print("Poorly formatted JSON, please try another recipe")
         break

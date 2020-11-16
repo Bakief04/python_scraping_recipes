@@ -4,4 +4,4 @@ The requirements that are being fulfilled are using web scraping, infinite loop,
 Code need beautifulsoup to work. You can do so by using the command pip install beautifulsoup4.
 Code needs requests to work. You can do so by using the command pip install requests
 
-I've encountered some recipes don't process JSON properly. If thats the case try another recipe
+I've encountered some recipes don't process JSON properly. If thats the case it will give you an error.
